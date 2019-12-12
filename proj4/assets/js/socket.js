@@ -8,7 +8,8 @@
 // from the params if you are not using authentication.
 import {Socket} from "phoenix"
 //import Chart from "chart.js"
-
+var num_tweets = 0;
+var num_retweets = 0; 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 // When you connect, you'll often need to authenticate the client.
@@ -62,11 +63,30 @@ channel.join()
   .receive("error", resp => { console.log("Unable to join", resp) })
 
 let num_users = document.getElementById("no_of_users")
+let tweet_count = document.getElementById("no-of-tweets")
+let retweet_count = document.getElementById("no-of-retweets")
 
 channel.on("num_users", n => {
   console.log("number of users recieved", n)
-  num_users.innerText = n.users
+  num_users.innerHTML = n.users
 })
+
+channel.on("tweet", n=>{
+  console.log("New tweet recieved", n.tweet)
+  ++num_tweets;
+  console.log(num_tweets)
+  tweet_count.innerText = num_tweets
+})
+
+channel.on("retweet", n=>{
+  console.log("New Retweet recieved", n.tweet)
+  ++num_retweets;
+  console.log(num_retweets)
+  retweet_count.innerText = num_retweets
+})
+
+
+
 
 
 

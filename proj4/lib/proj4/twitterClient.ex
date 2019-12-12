@@ -110,10 +110,11 @@ defmodule Proj4.TwitterClient do
         end
 
         if activity != "logout" do
+          IO.inspect(num_activities)
           Process.send_after(
             self(),
             {:startActivity, num_activities - 1, num_messages},
-            @time
+            20000
           )
         end
 
@@ -228,7 +229,7 @@ defmodule Proj4.TwitterClient do
     pending_tweets = GenServer.call({:global, :server}, :login) |> elem(1)
     IO.puts(username <> " Logged in. I have following pending tweets")
     IO.inspect(pending_tweets)
-    Process.send_after(self(), {:startActivity, num_messages, num_messages}, 1000)
+    Process.send_after(self(), {:startActivity, num_messages, num_messages}, 10000)
     {:noreply, {num_messages, username}}
   end
 

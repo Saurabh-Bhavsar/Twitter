@@ -80,8 +80,9 @@ select {
   margin: 1rem;
   display: block;
 }
-.phx-logo img {
-  width: auto;
+.twitter-logo {
+  width: 5%;
+
   display: block;
 }
 
@@ -106,27 +107,29 @@ header section :last-child {
 }
 header nav ul,
 header nav li {
-  margin: 0;
-  padding: 0;
-  display: block;
-  text-align: right;
-  white-space: nowrap;
+  margin: 10;
+  padding: 20;
+  float: right;
+  /*text-align: left;
+  white-space: nowrap;*/
 }
 header nav ul {
   margin: 1rem;
   margin-top: 0;
+  list-style-type: none;
 }
 header nav a {
   display: block;
+  padding: 16px;
 }
 
 @media (min-width: 40.0rem) { /* Small devices (landscape phones, 576px and up) */
   header section {
     flex-direction: row;
   }
-  header nav ul {
+  /*header nav ul {
     margin: 1rem;
-  }
+  }*/
   .phx-logo {
     flex-basis: 527px;
     margin: 2rem 1rem;

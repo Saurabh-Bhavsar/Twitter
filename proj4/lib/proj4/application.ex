@@ -28,7 +28,7 @@ defmodule Proj4.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Proj4.Supervisor]
     Supervisor.start_link(children, opts)
-    Process.sleep(:infinity)
+    #Process.sleep(:infinity)
   end
 
   # Tell Phoenix to update the endpoint configuration

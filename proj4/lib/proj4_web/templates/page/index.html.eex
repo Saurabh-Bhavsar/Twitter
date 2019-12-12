@@ -1,15 +1,14 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+<!--<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Twitter Simulator" %></h1>
   <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
-</section>
+</section>-->
 
 <section class="row">
   <article class="column">
-    <h2>Resources</h2>
+    <h2 id="no_of_users">Number of Users: </h2>
+    <!--<h1 id="no_of_users"></h1>
     <ul>
-      <li>
-        <p id="no_of_users"></p> 
-      </li>
+      <li > </li>
       <li>
         <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
       </li>
@@ -33,6 +32,6 @@
       <li>
         <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
       </li>
-    </ul>
-  </article>
+    </ul> -->
+  </article> 
 </section>

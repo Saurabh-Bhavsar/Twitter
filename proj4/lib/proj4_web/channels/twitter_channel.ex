@@ -13,6 +13,10 @@ defmodule Proj4Web.TwitterChannel do
     Proj4Web.Endpoint.broadcast("twitter_update:*", "tweet", %{tweet: tweet_text})
   end
 
+  def broadcast_retweets(%{retweet: tweet_text}) do
+    Proj4Web.Endpoint.broadcast("twitter_update:*", "retweet", %{retweet: tweet_text})
+  end
+
   def broadcast_subscribers(%{subscriber: value}) do
     Proj4Web.Endpoint.broadcast("twitter_update:*", "subscribers", %{subscriber: value})
   end

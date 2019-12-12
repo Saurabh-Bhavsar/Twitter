@@ -280,9 +280,10 @@ defmodule Proj4.TwitterEngine do
   end
 
   def handle_call({:retweet, tweet_id, tweet_text}, client_id, state) do
+
     [{user_id, username, user_subscribers, user_following, user_status, user_hashtags}] =
       :ets.lookup(:userDetails, client_id |> elem(0))
-
+    Proj4Web.TwitterChannel.broadcast_retweets(%{retweet: tweet_text})
     IO.puts("Retweeting " <> tweet_text)
 
     Enum.each(user_subscribers, fn subscriber ->
@@ -352,6 +353,7 @@ defmodule Proj4.TwitterEngine do
 
   def handle_call({:tweet, tweet_text}, client_id, state) do
     tweet_id = Enum.random(1..999_999)
+    Proj4Web.TwitterChannel.broadcast_tweets(%{tweet: tweet_text})
     Proj4.TwitterEngine.tweet(tweet_id, tweet_text, client_id |> elem(0))
     {:reply, :tweeted, state}
   end
